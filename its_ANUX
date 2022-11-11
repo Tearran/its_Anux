@@ -1,0 +1,247 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# Copyright (c) 2022 Joseph Turner (aka Tearran) & contributors
+
+import sys, os, sqlite3, webbrowser
+from http.server import BaseHTTPRequestHandler, HTTPServer
+path=os.listdir(os.path.dirname(__file__))
+
+class MyServer(BaseHTTPRequestHandler):
+         
+    def do_GET(self):
+        its_list = ''
+        self.send_response(200)
+        self.send_header("Content-type", "text/html")
+        self.end_headers()
+
+        self.wfile.write(bytes('''
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>BaseUI Python3</title>
+</head>
+<body>
+        
+        ''', "utf-8"))
+## UI Image                
+        self.wfile.write(bytes('''        
+    
+<svg version="1.1" viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<style>
+		@font-face {
+	font-family: OSPDIN;
+	src: url("OSPDIN.ttf") format("truetype");
+	font-weight: bold;
+	font-style: normal;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	background-color: #000;
+	font-family: OSPDIN, sans-serif, monospace;
+}
+svg text {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	fill:#ccc;
+}
+text.title{
+	font-size: x-large;
+	font-weight: bolder;
+	fill: #ccc;	
+}
+.opacity {
+	opacity: 0%;
+}		
+	</style>
+	<def>
+		<image id="img000" xlink:href="https://lkars.com/apps/its_AnUX/res/glass200px.svg" />
+		<image id="img001" width="100%" xlink:href="https://lkars.com/apps/its_AnUX/res/UIXScreenFull.svg" />	
+		<image id="img002" width="100%" xlink:href="https://lkars.com/apps/its_AnUX/res/UIXScreenFull2.svg" />
+		<image id="img003" width="100%" xlink:href="https://lkars.com/apps/its_AnUX/res/UIXScreenFull3.svg" />
+		<image id="img004" width="100%" xlink:href="https://lkars.com/apps/its_AnUX/res/earth-Info.svg" />
+		<image id="img005" width="100%" xlink:href="https://lkars.com/apps/its_AnUX/res/moon.svg" />
+	
+	</def>
+
+	<use id="uiA" xlink:href="#img001" opacity="0"/>
+	<use id="uiB" xlink:href="#img002" opacity="0"/>
+	<use id="uiC" xlink:href="#img003" opacity="1"/>
+	
+	
+	<use id="earthA" xlink:href="#img004" transform="matrix(1 0 0 1 0 0)" opacity="0"/>
+	<use id="lunaA" xlink:href="#img005" transform="matrix(.5 0 0 .5 250 100)" opacity="0"/>
+	
+	<use id="btnD" opacity="0" xlink:href="#img000" transform="matrix(-1 0 0 -1 1280 800)"/>
+	<use id="btnA" opacity="0" xlink:href="#img000" transform="matrix(1 0 0 1 0 0)"/>
+	<use id="btnB" opacity="0" xlink:href="#img000" transform="matrix(1 0 0 -1 0 800)"/>
+	<use id="btnC" opacity="0" xlink:href="#img000" transform="matrix(-1 0 0 1 1280 0)" opacity="0"/>
+
+	<g id="dataHeadline">	
+	<text id="TitleA" opacity="1" class="title" x="1075" y="24" text-anchor="end">This is "TitleA"</text>
+	
+	<text id="lineA" class="headlone" x="1100" y="175"  text-anchor="end">
+		This is "lineA"
+	</text>	
+	<text id="lineB" class="headline" x="1100" y="195"  text-anchor="end"> 
+		This is "lineB"
+	</text>
+	<text id="lineC" class="headline" x="1100" y="215" text-anchor="end">
+		This is "lineC" 
+	</text>
+		<text id="lineD" class="headline" x="1100" y="235" text-anchor="end">
+		This is "lineD" 
+	</text>
+
+	</g>
+	<!-- Buttons text -->
+	<text id="buttonline01" class="buttons" x="98"  y="95" text-anchor="end" opacity="0" >buttonline01</text>
+	<text id="buttonline02" class="buttons" x="98" y="715" text-anchor="end" opacity="0">buttonline02</text>
+	<text id="buttonline03" class="buttons" x="1270" y="95" text-anchor="end" opacity="0">buttonline03</text>
+	<text id="buttonline04" class="buttons" x="1270" y="715" text-anchor="end" opacity="0">buttonline04</text>
+	<script>
+			// <![CDATA[
+document.querySelector("#TitleA").innerHTML = "its AnUX";
+document.querySelector("#lineA").innerHTML = "";
+document.querySelector("#lineB").innerHTML = "";
+document.querySelector("#lineC").innerHTML = "";
+document.querySelector("#lineD").innerHTML = "";
+
+var bleep = new Audio();
+bleep.src = "https://lkars.com/apps/its_AnUX/res/beepSort.mp3";
+var hideA = document.querySelector("#btnA");
+var hideB = document.querySelector("#btnB");
+var hideC = document.querySelector("#btnC");
+var hideD = document.querySelector("#btnD");
+var hideE = document.querySelector("#TitleA");
+var btnAtxt = document.querySelector("#buttonline01");
+var btnBtxt = document.querySelector("#buttonline02");
+var btnCtxt = document.querySelector("#buttonline03");
+var btnDtxt = document.querySelector("#buttonline04");
+
+(btnAtxt.style.opacity = "1");
+(btnAtxt.innerHTML = "Orbit");
+(btnBtxt.style.opacity = "1");
+(btnBtxt.innerHTML = "Satellites");
+(btnCtxt.style.opacity = "1");
+(btnCtxt.innerHTML = " ");
+(btnDtxt.style.opacity = "1");
+(btnDtxt.innerHTML = "Screen Fill");
+
+btnA.addEventListener(
+	"click",
+	function () {
+		displayEarth();
+	},
+	false
+);
+btnB.addEventListener(
+	"click",
+	function () {
+		displayLuna();
+	},
+	false
+);
+
+btnD.addEventListener(
+	"click",
+	function () {
+		toggleFullScreen();
+	},
+	false
+);
+
+function toggleFullScreen() {
+	if (!document.fullscreenElement) {
+		bleep.play(), displayInfo(), document.querySelector("#buttonline04").innerHTML = "Exit Fill",
+			document.documentElement.requestFullscreen();
+	} else if (document.exitFullscreen) {
+		bleep.play(), hideDisplay(), document.querySelector("#buttonline04").innerHTML = "Screen Fill", 
+			document.exitFullscreen();
+	}
+}
+
+function displayInfo() {
+	document.querySelector("#TitleA").innerHTML = "Display";
+	
+		(document.querySelector("#lineB").innerHTML =
+			" width is " +
+			screen.width +
+			" height is " +
+			screen.height +
+			" colorDepth is " + 
+		 screen.colorDepth),
+		(btnA.style.opacity = "0");
+		(btnB.style.opacity = "0");
+		(btnC.style.opacity = "0");
+		(btnD.style.opacity = "1");
+}
+
+function displayEarth() {
+	(document.querySelector("#lineA").innerHTML =
+		"Known Names: Earth, Gaia, Terra firma, eorþe. ");
+	(bleep.play());
+		(document.querySelector("#lineB").innerHTML =
+		"est. population: 8000000000.");
+	(bleep.play());
+			(document.querySelector("#lineC").innerHTML =
+		"est. Co2 generation:35000000000 metric tons yr");
+	(bleep.play());
+	(document.querySelector("#TitleA").innerHTML = "Gaia");
+	(document.querySelector("#earthA").style.opacity = "1");
+	(document.querySelector("#lunaA").style.opacity = "0");
+		(btnA.style.opacity = "1");
+		(btnB.style.opacity = "0");
+		(btnC.style.opacity = "0");
+		(btnD.style.opacity = "0");
+}
+function displayLuna() {
+	(bleep.play());
+	(document.querySelector("#TitleA").innerHTML = "Luna");
+	(document.querySelector("#earthA").style.opacity = "0");
+	(document.querySelector("#lunaA").style.opacity = "1");
+		(btnA.style.opacity = "0");
+		(btnB.style.opacity = "1");
+		(btnC.style.opacity = "0");
+		(btnD.style.opacity = "0");
+}
+
+function hideDisplay() {
+	document.querySelector("#TitleA").innerHTML = "Main";
+	document.querySelector("#lineA").innerHTML = " " ,
+	document.querySelector("#lineB").innerHTML = "",
+		(btnA.style.opacity = "0"),
+		(btnB.style.opacity = "0"),
+		(btnC.style.opacity = "0"),
+		(btnD.style.opacity = "0");
+}
+			// ]]>
+		</script>
+</svg>
+    </body>
+</html>
+        
+        ''', "utf-8"))
+        
+if __name__ == "__main__":
+    appServer = HTTPServer(('', 8000), MyServer)
+    print("Its AnUX loaded")
+    try:
+        
+        print("started at http://localhost:8000")
+        appServer.serve_forever()
+    except KeyboardInterrupt:       
+        pass
+
+    appServer.server_close()
+    print("Server stopped.")
+
