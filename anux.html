@@ -1,0 +1,219 @@
+<svg viewBox="0 0 800 1320" width="100%" height="100%" x="0" y="0" fill="#333" preserveAspectRatio="xMaxYMin slice">
+	<defs>
+		<rect id="buttona" x="2.5" y="2.50" width="95" height="45" />
+		<rect id="buttonback" x="25" y="-2.50" width="50" height="100%" />
+		<g id="buttonb" transform="matrix(.894737 0 0 .777778 5.26316 5.55556)">
+			<path d="m26.25 2.5c-13.1575 0-23.75 10.035-23.75 22.5v22.5h71.25c13.1575 0 23.75-10.035 23.75-22.5v-22.5z" />
+		</g>
+
+		<g id="buttonsDivider">
+			<path d="m2.5 72.5h95l-0.105469-33c-46.261-0.25743-94.8945 0-94.8945 33z" />
+			<path d="m2.5 2.5h95l-0.105469 33c-46.261 0.25743-94.8945 0-94.8945-33z" />
+			<rect x="127.5" y="23.2606" width="100%" height="12.4788" />
+			<rect x="127.5" y="39.2606" width="100%" height="12.4788" />
+			<rect id="its_Anux_a" width="12.5" height="12.5" x="127.5" y="23.2606" fill="#000" />
+			<rect id="its_Anux_b" x="127.5" y="39.2606" width="12.5" height="12.5" fill="#000" />
+			<animate xlink:href="#its_Anux_a" attributeName="x" from="127" to="700" dur="2.5s" begin="0s" repeatCount="indefinite" fill="freeze" id="rect-anim" />
+			<animate xlink:href="#its_Anux_b" attributeName="x" from="700" to="127" dur="2.5s" begin="0s" repeatCount="indefinite" fill="freeze" id="rect-animb" />
+			<g transform="translate(0, 0)">
+				<path d="m102.5 3.5v32l19.9576 0.03564 0.0424-12.2993c-10.5806-1.52476-18.8244-9.59424-20-19.7363z" />
+				<path d="m102.5 71.5356v-32l19.9576-0.03564 0.0424 12.2993c-10.5806 1.52476-18.8244 9.59424-20 19.7363z" />
+			</g>
+		</g>
+	</defs>
+	<style>
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			width: 100vw;
+			height: 100vh;
+			overflow: hidden;
+			background-color: #000;
+		}
+
+		tspan.text {
+			font-size: small;
+			font-weight: bolder;
+			fill: #67daff;
+		}
+		tspan.title {
+			font-size: large;
+			font-weight: bolder;
+			fill: #67daff;
+		}
+
+		tspan.btext {
+			font-size: smaller;
+			font-weight: bolder;
+			fill: #000;
+		}
+
+		.button {
+			font-weight: bolder;
+			fill: #67daff;
+			opacity: 0.80;
+		}
+
+		.teal {
+			fill: #67daff;
+			stroke-width: 5;
+		}
+
+		.grey {
+			fill: rgba(55, 255, 255, .1);
+		}
+
+		.orange {
+			fill: rgba(255, 165, 0, 1);
+		}
+
+		.green {
+			fill: rgba(0, 255, 0, 1);
+		}
+
+		.alert,
+		.high {
+			fill: #67daff;
+			animation: filter-alert 1.5s infinite;
+		}
+
+		.accept {
+			fill: #67daff;
+			animation: filter-accept 10s infinite;
+		}
+
+		@keyframes filter-accept {
+			0% {
+				fill: rgba(255, 255, 0, 1);
+			}
+
+			25% {
+				fill: rgb(0, 255, 0);
+			}
+
+			50% {
+				fill: rgb(0, 255, 255);
+			}
+
+			75% {
+				fill: rgb(0, 0, 255);
+			}
+
+			100% {
+				fill: #ffa500;
+			}
+		}
+
+		@keyframes filter-alert {
+			0% {
+				fill: rgba(255, 0, 0, 1);
+				opacity: )%;
+			}
+			50% {
+				opacity: 50%;
+			}
+
+			100% {
+				fill: rgb(255, 0, 0);
+				opacity: 75%;
+			}
+		}
+
+		@media screen and (max-width: 1280px) and (min-width: 400px) {
+			#horzButtons {
+				display: none;
+			}
+		}
+
+		@media screen and (max-width: 399px) and (min-width: 1px) {
+			#horzButtons {
+				display: block;
+			}
+		}
+	</style>
+
+	<g id="landscapeb">
+
+
+		<use class="grey" id="BtnBck" xlink:href="#buttonback" x="0" y="0" />
+		<use class="button" id="BTNa" xlink:href="#buttonb" x="0" y="0" />
+		<use class="button" id="BTNb" xlink:href="#buttonb" x="0" y="50" />
+
+
+		<use class="button" id="BTNc" xlink:href="#buttonb" x="0" y="175" />
+		<use class="button" id="BTNd" xlink:href="#buttonb" x="0" y="225" />
+		<use class="button" id="BTNe" xlink:href="#buttonb" x="0" y="275" />
+		<use class="button" id="BTNf" xlink:href="#buttonb" x="0" y="325" />
+		<use class="button" id="BTNg" xlink:href="#buttonb" x="0" y="375" />
+		<use class="prime" id="dividerH" xlink:href="#buttonsDivider" x="0" y="100" />
+	<text>
+			<tspan id="buttonline01" class="btext" x="90" y="20" text-anchor="end" fill:"#000">{FS}</tspan>
+			<tspan id="title00" class="text title" x="80%" y="50" text-anchor="end">{title}</tspan>
+			<tspan id="headline00" class="text" x="110" y="90" text-anchor="start">{headline00}</tspan>
+			<tspan id="headline02" class="text" x="110" y="70" text-anchor="start">{headline01}</tspan>
+			<tspan id="headline01" class="text" x="110" y="50" text-anchor="start">{headline02}</tspan>
+		</text>
+	</g>
+
+	<script>
+		// <![CDATA[
+		var bleep = new Audio();
+		bleep.src = 'https://lkars.com/apps/sound/btn_click.mp3';
+		var btna = document.querySelector("#buttonline01");
+		document.querySelector(".prime").className.baseVal = "teal";
+		document.querySelector(".button").className.baseVal = "button";
+		BTNa.addEventListener(
+			'click',
+			function() {
+				toggleFullScreen();
+			},
+			false,
+		);
+		BTNb.addEventListener(
+			'click',
+			function() {
+				toggleFullScreen();
+			},
+			false,
+		);
+
+		function toggleFullScreen() {
+			if (!document.fullscreenElement) {
+				bleep.play(),
+					btna.innerHTML = "X",
+					document.documentElement.requestFullscreen();
+			} else if (document.exitFullscreen) {
+				bleep.play(),
+					btna.innerHTML = "Fill",
+					document.exitFullscreen();
+			}
+		}
+		if (self.matchMedia("(max-width: 400px)").matches) {
+			document.querySelector('svg').setAttribute("viewBox", "-100 0 700 700");
+		}
+		//fps counter
+		var fps = document.querySelector("#headline00");
+		var dtm = document.querySelector("#headline01");
+		var sc = document.querySelector("#headline02");
+		var pt = document.querySelector("#title00");
+		var startTime = Date.now();
+		var frame = 0;
+
+		function tick() {
+			var time = Date.now();
+			const dt = new Date();
+			frame++;
+			if (time - startTime > 1000) {
+				fps.innerHTML = ((((time / 60) / 60)) / 24).toFixed(3) + " hours, " + (frame / ((time - startTime) / 1000)).toFixed(4);
+				dtm.innerHTML = dt;
+				dtm.innerHTML = "FullScreen";
+				startTime = time;
+				frame = 0;
+			}
+			window.requestAnimationFrame(tick);
+		}
+		tick();
+		// ]]>
+	</script>
+</svg>
